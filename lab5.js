@@ -115,11 +115,15 @@ module.exports = {
             let array = [];
           
             while (true) {
-                array.unshift(+readline.question("value: "));
+
+                let x = readline.question("value: ");
+                if (x === "" ||x === null || !isFinite(x)) break;
+                array.push(+x);
+                /* array.unshift(+readline.question("value: "));
                 if (array[0] === "" || array[0] === null || !isFinite(array[0])) {
                     array.shift();
                     break;
-                }
+                } */
             }
         
             let sum = array.reduce(function(sum, item) {return sum + item} , 0);
